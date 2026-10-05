@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-///*
+/*
 export default defineConfig({ // Local development
   plugins: [react()],
   server: {
@@ -12,10 +12,10 @@ export default defineConfig({ // Local development
     },
   },
 });
-//*/
-/*
+*/
+///*
 export default defineConfig({
   plugins: [react()],
-  base: '/<your-github-repo-name>/',   // e.g. '/mp2/' -- must match the repo name
+  base: '/mp2/',   // e.g. '/mp2/' -- must match the repo name
 })
-  */
+  //*/
