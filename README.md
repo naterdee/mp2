@@ -85,9 +85,9 @@ Other:
 7. We *strongly* recommend using `Vite` to get your MP started. If you ignore this, we will not help with any environment issues.
 
 ## Getting Started
-1. Use `Vite` (see below) to generate your MP starter code, then run `npm install`.
-2. After running `npm run dev` open a browser and go to `http://localhost:5173/` to view your page.
-3. Open up `src/App.tsx` to start building your first component. Visit https://react.dev/learn for many official, high quality resources to help get you started.
+1. In `client/`, run `npm install` and then `npm run dev`.
+2. In a second terminal, run `npm install` and then `npm run dev` from `server/` to start the API on port `5001`.
+3. Open `http://localhost:5173/` to view the app. The main component is `client/src/components/App.tsx`.
 
 ### Vite
 [Vite](https://vite.dev/) generates a React starter project that requires no immediate configuration, and is one of the tools [React officially recommends](https://react.dev/link/cra) now that Create React App is deprecated. Use the **react-ts** template:
@@ -96,7 +96,7 @@ Other:
 npm create vite@latest . -- --template react-ts
 ```
 
-If Vite does **not** install dependencies for you, run `npm install` afterwards. The dev server is `npm run dev` (not `npm start`), and a production build goes to `dist/` (not `build/`).
+If Vite does **not** install dependencies for you, run `npm install` from `client/`. The dev server is `npm run dev` (not `npm start`), and a production build goes to `client/dist/` (not `build/`).
 
 
 ## Submission Details
