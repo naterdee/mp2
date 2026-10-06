@@ -1,0 +1,178 @@
+.app-shell { max-width: 1380px; min-height: 100vh; margin: 0 auto; padding: 0 64px; }
+.topbar { height: 76px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+.wordmark { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-size: 13px; font-weight: 800; letter-spacing: 1.3px; text-decoration: none; }
+.brand-mark { position: relative; width: 24px; height: 24px; display: grid; place-items: center; border: 2px solid var(--ink); border-radius: 50%; }
+.brand-mark::before { content: ''; position: absolute; width: 22px; height: 2px; background: var(--ink); }
+.brand-mark i { z-index: 1; width: 7px; height: 7px; border: 2px solid var(--ink); border-radius: 50%; background: var(--paper); }
+.topbar-note, .api-status, .eyebrow, .result-count, .select-control > span, .card-number, .footer, .detail-number, .measurements > div > span { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: 1.25px; }
+.topbar-note { color: var(--muted); }
+.topbar-note span { padding: 0 7px; color: var(--coral); }
+.api-status { display: flex; align-items: center; gap: 8px; color: var(--ink); }
+.api-status i { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px #4287621b; }
+.api-status.loading i { background: #d5a93a; box-shadow: 0 0 0 3px #d5a93a1b; }
+.api-status.error { color: #a14332; }
+.api-status.error i { background: var(--coral); box-shadow: 0 0 0 3px #d8674e1b; }
+.explorer { max-width: 1120px; margin: 0 auto; }
+.intro { min-height: 385px; position: relative; display: flex; align-items: center; border-bottom: 1px solid var(--line); overflow: hidden; }
+.intro-copy { position: relative; z-index: 2; width: 53%; padding: 28px 0 40px; animation: rise-in .65s both; }
+.eyebrow { margin: 0 0 18px; color: var(--coral); }
+.intro h1, .detail-info h1, .not-found h1 { margin: 0; color: var(--ink); font-family: var(--display); font-size: 58px; font-weight: 500; line-height: 1.02; }
+.intro h1 span { color: var(--green); font-style: italic; }
+.intro-text { max-width: 360px; margin: 18px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.intro-art { position: absolute; right: 6%; top: 3px; width: 370px; height: 355px; display: grid; place-items: center; }
+.intro-art img { z-index: 1; width: 285px; height: 285px; object-fit: contain; filter: drop-shadow(0 18px 13px #25332320); animation: float-in .8s .12s both; }
+.art-ring { position: absolute; width: 275px; height: 275px; border: 1px solid #52866547; border-radius: 50%; }
+.art-ring::before, .art-ring::after { content: ''; position: absolute; border: 1px solid #52866530; border-radius: 50%; inset: 17px; }
+.art-ring::after { inset: -16px; border-style: dashed; }
+.art-caption { position: absolute; z-index: 2; bottom: 26px; right: 0; display: flex; gap: 12px; color: var(--muted); font: 10px var(--sans); letter-spacing: 1px; }
+.art-caption b { color: var(--ink); }
+.intro-index { position: absolute; bottom: 24px; left: 0; display: flex; align-items: baseline; gap: 6px; color: var(--muted); font: 11px var(--sans); }
+.intro-index strong { color: var(--ink); font: 14px var(--display); }
+.intro-index span { margin: 0 4px; color: var(--coral); }
+.catalog { padding: 48px 0 72px; }
+.catalog-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 23px; }
+.catalog-heading .eyebrow { margin-bottom: 7px; }
+.catalog-heading h2 { margin: 0; color: var(--ink); font: 500 29px var(--display); }
+.result-count { padding-bottom: 6px; color: var(--muted); }
+.toolbar { display: flex; align-items: stretch; gap: 9px; margin-bottom: 25px; }
+.search-box { flex: 1; min-width: 150px; display: flex; align-items: center; gap: 10px; padding: 0 13px; border: 1px solid var(--line); background: #fffefa; }
+.search-box > span { color: var(--green); font: 27px/1 var(--sans); transform: rotate(-20deg); }
+.search-box input { width: 100%; min-width: 0; padding: 12px 0; border: 0; outline: 0; color: var(--ink); background: transparent; font: 13px var(--sans); }
+.search-box input::placeholder { color: #9a9a8f; }
+.clear-search, .order-button, .view-toggle button { display: grid; place-items: center; border: 1px solid var(--line); color: var(--ink); background: #fffefa; cursor: pointer; }
+.clear-search { width: 24px; height: 24px; border: 0; background: transparent; font-size: 18px; }
+.select-control { min-width: 124px; display: flex; flex-direction: column; justify-content: center; gap: 2px; padding: 4px 12px; border: 1px solid var(--line); background: #fffefa; }
+.select-control > span { color: var(--muted); font-size: 8px; }
+.select-control select { border: 0; outline: 0; color: var(--ink); background: transparent; font: 12px var(--sans); text-transform: capitalize; }
+.sort-control { min-width: 110px; }
+.order-button { width: 44px; font-size: 18px; }
+.view-toggle { display: flex; gap: 4px; margin-left: auto; }
+.view-toggle button { width: 40px; font-size: 16px; }
+.view-toggle button.active { color: white; border-color: var(--green); background: var(--green); }
+.pokemon-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px 16px; }
+.pokemon-card { min-width: 0; color: var(--ink); text-decoration: none; animation: rise-in .35s both; }
+.pokemon-card:nth-child(3n + 2) { animation-delay: .04s; }
+.card-art { position: relative; display: grid; aspect-ratio: 1 / 1; place-items: center; overflow: hidden; background: var(--card); transition: background .2s; }
+.pokemon-card:nth-child(4n + 2) .card-art { background: #f3eee5; }
+.pokemon-card:nth-child(4n + 3) .card-art { background: #e9f1e7; }
+.pokemon-card:nth-child(4n + 4) .card-art { background: #f4ebdf; }
+.card-art img { width: 78%; height: 78%; object-fit: contain; transition: transform .25s; }
+.pokemon-card:hover .card-art { background: #e2ecdF; }
+.pokemon-card:hover .card-art img { transform: scale(1.08); }
+.card-number { position: absolute; top: 12px; left: 12px; z-index: 1; color: #7d8074; font-size: 9px; }
+.card-arrow { position: absolute; right: 11px; bottom: 9px; color: var(--green); font-size: 17px; opacity: 0; transform: translate(-3px, 3px); transition: .2s; }
+.pokemon-card:hover .card-arrow { opacity: 1; transform: translate(0); }
+.card-label { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 10px 1px 0; font-size: 12px; font-weight: 700; text-transform: capitalize; }
+.card-label > span:last-child { color: var(--muted); font: 10px var(--sans); }
+.pokemon-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.pokemon-list .pokemon-card { display: flex; align-items: center; gap: 16px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.pokemon-list .card-art { width: 68px; height: 68px; flex: none; }
+.pokemon-list .card-art img { width: 88%; height: 88%; }
+.pokemon-list .card-number { top: 5px; left: 6px; font-size: 7px; }
+.pokemon-list .card-label { flex: 1; padding: 0; font-size: 14px; }
+.pokemon-list .card-label > span:last-child { margin-right: 10px; font-size: 11px; }
+.pokemon-list .card-arrow { opacity: 1; right: 10px; bottom: auto; }
+.empty-state, .loading-state { padding: 68px 12px; text-align: center; color: var(--muted); font-size: 13px; }
+.empty-state > span { display: inline-grid; width: 38px; height: 38px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--coral); font: 20px var(--display); }
+.empty-state h3 { margin: 12px 0 4px; color: var(--ink); font: 500 22px var(--display); }
+.notice { margin: 14px 0; padding: 12px 15px; border-left: 3px solid var(--coral); color: #783d2f; background: #f9eae4; font-size: 13px; }
+.footer { display: flex; justify-content: space-between; gap: 12px; padding: 21px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 9px; }
+.detail-page { max-width: 1000px; min-height: calc(100vh - 142px); margin: 0 auto; padding: 30px 0 60px; }
+.back-link { display: inline-block; margin-bottom: 24px; color: var(--green); font-size: 12px; font-weight: 700; text-decoration: none; }
+.back-link:hover { color: var(--coral); }
+.detail-layout { display: grid; grid-template-columns: minmax(280px, .95fr) minmax(360px, 1fr); gap: 70px; align-items: center; }
+.detail-art { position: relative; display: grid; min-height: 480px; place-items: center; overflow: hidden; background: #e9f1e7; }
+.detail-art > img { position: relative; z-index: 1; width: 78%; max-height: 410px; object-fit: contain; filter: drop-shadow(0 18px 13px #25332320); animation: float-in .55s both; }
+.detail-number { position: absolute; z-index: 2; top: 20px; left: 20px; color: #68826a; }
+.detail-orbit { position: absolute; width: 68%; aspect-ratio: 1; border: 1px solid #52866540; border-radius: 50%; }
+.detail-orbit::before { position: absolute; content: ''; inset: 14px; border: 1px dashed #52866545; border-radius: 50%; }
+.detail-type-row { position: absolute; z-index: 2; bottom: 17px; left: 18px; display: flex; gap: 7px; }
+.type-chip { padding: 6px 12px; color: white; background: #777; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+.type-bug { background: #86a83d; }
+.type-dark { background: #55515f; }
+.type-dragon { background: #6555bd; }
+.type-electric { background: #b18a08; }
+.type-fairy { background: #b44f7d; }
+.type-fighting { background: #c45c48; }
+.type-fire { background: #e66c45; }
+.type-flying { background: #657bb5; }
+.type-ghost { background: #7166a8; }
+.type-grass { background: #4c8754; }
+.type-ground { background: #987039; }
+.type-ice { background: #438e99; }
+.type-normal { background: #74756d; }
+.type-poison { background: #a565a2; }
+.type-psychic { background: #bd4d6c; }
+.type-rock { background: #827144; }
+.type-steel { background: #5e7788; }
+.type-water { background: #568ac7; }
+.detail-info .eyebrow { margin-bottom: 12px; }
+.detail-info h1 { font-size: 48px; text-transform: capitalize; }
+.detail-subtitle { margin: 9px 0 25px; color: var(--muted); font-size: 13px; }
+.measurements { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 27px; border-block: 1px solid var(--line); }
+.measurements > div { padding: 14px 0; }
+.measurements > div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+.measurements > div > span { display: block; margin-bottom: 5px; color: var(--muted); font-size: 8px; }
+.measurements strong { color: var(--ink); font: 22px var(--display); }
+.measurements small { color: var(--muted); font: 12px var(--sans); }
+.detail-section { margin-top: 23px; }
+.detail-section h2 { margin: 0 0 14px; color: var(--ink); font: 500 20px var(--display); text-transform: capitalize; }
+.stat-row { display: grid; grid-template-columns: 92px 30px 1fr; align-items: center; gap: 10px; margin: 9px 0; color: var(--muted); font-size: 10px; text-transform: capitalize; }
+.stat-row strong { color: var(--ink); font-size: 10px; text-align: right; }
+.stat-track { width: 100%; height: 5px; overflow: hidden; appearance: none; border: 0; background: #e9e6dd; }
+.stat-track::-webkit-progress-bar { background: #e9e6dd; }
+.stat-track::-webkit-progress-value, .stat-track::-moz-progress-bar { background: var(--green); }
+.abilities > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.abilities > div span { padding: 6px 9px; border: 1px solid var(--line); color: var(--ink); font-size: 10px; text-transform: capitalize; }
+.detail-nav { display: flex; justify-content: space-between; margin-top: 30px; border-top: 1px solid var(--line); }
+.detail-nav button { display: flex; flex: 1 1 0; align-items: center; gap: 10px; padding: 15px 0; border: 0; color: var(--green); background: transparent; cursor: pointer; }
+.detail-nav button:last-child { justify-content: flex-end; }
+.detail-nav .nav-arrow { font-size: 18px; }
+.detail-nav .nav-label { font-size: 9px; }
+.detail-nav button:disabled { color: #a7a79d; cursor: default; }
+.not-found { min-height: 65vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.not-found h1 { max-width: 520px; margin-bottom: 20px; }
+@keyframes rise-in { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes float-in { from { opacity: 0; transform: translateY(12px) scale(.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (max-width: 900px) {
+  .app-shell { padding: 0 32px; }
+  .pokemon-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 12px; }
+  .intro-art { right: 0; width: 330px; }
+  .intro-art img { width: 250px; height: 250px; }
+  .art-ring { width: 240px; height: 240px; }
+  .detail-layout { gap: 35px; }
+  .detail-art { min-height: 410px; }
+}
+@media (max-width: 640px) {
+  .app-shell { padding: 0 18px; }
+  .topbar { height: 62px; }
+  .topbar-note { display: none; }
+  .api-status { font-size: 8px; }
+  .intro { min-height: 440px; align-items: flex-start; }
+  .intro-copy { width: 100%; padding-top: 34px; }
+  .intro h1 { font-size: 43px; }
+  .intro-text { max-width: 265px; margin-top: 12px; font-size: 12px; }
+  .intro-art { top: 175px; right: -14px; width: 230px; height: 230px; }
+  .intro-art img { width: 190px; height: 190px; }
+  .art-ring { width: 178px; height: 178px; }
+  .art-caption { right: 0; bottom: 3px; font-size: 8px; }
+  .intro-index { bottom: 15px; }
+  .catalog { padding: 33px 0 48px; }
+  .catalog-heading h2 { font-size: 25px; }
+  .toolbar { flex-wrap: wrap; gap: 7px; }
+  .search-box { flex-basis: 100%; min-height: 44px; }
+  .select-control { flex: 1; min-width: 0; min-height: 43px; }
+  .order-button { width: 43px; }
+  .view-toggle { margin-left: 0; }
+  .view-toggle button { width: 37px; }
+  .pokemon-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 17px 11px; }
+  .card-number { top: 8px; left: 8px; font-size: 8px; }
+  .card-label { font-size: 11px; }
+  .footer { font-size: 7px; letter-spacing: .7px; }
+  .detail-page { min-height: calc(100vh - 128px); padding: 22px 0 40px; }
+  .detail-layout { grid-template-columns: 1fr; gap: 26px; }
+  .detail-art { min-height: 320px; }
+  .detail-art > img { max-height: 280px; }
+  .detail-info h1 { font-size: 40px; }
+  .not-found h1 { font-size: 42px; }
+}
