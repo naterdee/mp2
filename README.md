@@ -89,6 +89,8 @@ Other:
 2. In a second terminal, run `npm install` and then `npm run dev` from `server/` to start the API on port `5001`.
 3. Open `http://localhost:5173/` to view the app. The main component is `client/src/components/App.tsx`.
 
+The development client proxies API requests to the local server on port `5001`. The GitHub Pages build calls the public PokeAPI directly because GitHub Pages only hosts static files and does not run the Express server.
+
 ### Vite
 [Vite](https://vite.dev/) generates a React starter project that requires no immediate configuration, and is one of the tools [React officially recommends](https://react.dev/link/cra) now that Create React App is deprecated. Use the **react-ts** template:
 

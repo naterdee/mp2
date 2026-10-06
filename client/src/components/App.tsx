@@ -1,21 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
-import axios from 'axios'
 import { BrowserRouter, Link, Route, Routes, useNavigate, useParams } from 'react-router-dom'
+import {
+  getPokemon,
+  getPokemonByType,
+  getPokemonDetails,
+  getPokemonTypes,
+} from '../api/pokemon'
+import type { PokemonDetails, PokemonSummary } from '../api/pokemon'
 import './App.css'
-
-type PokemonSummary = {
-  id: number
-  name: string
-  sprite: string
-}
-
-type PokemonDetails = PokemonSummary & {
-  types: string[]
-  height: number
-  weight: number
-  abilities: string[]
-  stats: { name: string; value: number }[]
-}
 
 type PokemonDetailResult =
   | { name: string; status: 'loaded'; data: PokemonDetails }
@@ -37,22 +29,22 @@ function App() {
 
   useEffect(() => {
     Promise.all([
-      axios.get<PokemonSummary[]>('/api/pokemon', { params: { limit: 151 } }),
-      axios.get<string[]>('/api/types'),
-    ]).then(([pokemonResponse, typesResponse]) => {
-      setPokemon(pokemonResponse.data)
-      setTypes(typesResponse.data)
-    }).catch(() => setError('Could not reach the PokéApp API. Check that the API server is running.'))
+      getPokemon(151),
+      getPokemonTypes(),
+    ]).then(([pokemonResults, pokemonTypes]) => {
+      setPokemon(pokemonResults)
+      setTypes(pokemonTypes)
+    }).catch(() => setError('Could not load Pokémon data. Check your connection and try again.'))
       .finally(() => setLoading(false))
   }, [])
 
   useEffect(() => {
     let active = true
     if (selectedType === 'all') return () => { active = false }
-    axios.get<PokemonSummary[]>(`/api/pokemon/type/${selectedType}`)
-      .then(response => {
+    getPokemonByType(selectedType)
+      .then(results => {
         if (active) {
-          setTypePokemon(response.data)
+          setTypePokemon(results)
           setLoadedType(selectedType)
           setTypeError('')
         }
@@ -185,8 +177,8 @@ function PokemonDetail({ pokemon }: { pokemon: PokemonSummary[] }) {
 
   useEffect(() => {
     let active = true
-    axios.get<PokemonDetails>(`/api/pokemon/${name}`).then(response => {
-      if (active) setResult({ name, status: 'loaded', data: response.data })
+    getPokemonDetails(name).then(details => {
+      if (active) setResult({ name, status: 'loaded', data: details })
     }).catch(() => {
       if (active) setResult({ name, status: 'error', message: 'This Pokémon could not be found.' })
     })
